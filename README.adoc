@@ -1,0 +1,7 @@
+= jenkins master in docker
+:toc:
+
+TODO: embeddable-build-status
+
+TODO: clean docker volume
+

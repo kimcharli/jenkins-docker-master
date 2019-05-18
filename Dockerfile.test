@@ -1,0 +1,10 @@
+FROM ubuntu:16.04
+
+RUN apt-get update && apt-get install -yq curl && apt-get clean
+
+WORKDIR /app
+
+ADD run_test.sh /app/run_test.sh
+
+CMD ["bash", "run_test.sh"]
+
