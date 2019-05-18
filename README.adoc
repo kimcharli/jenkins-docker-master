@@ -1,4 +1,10 @@
 = jenkins master in docker
+
+image:https://img.shields.io/docker/cloud/automated/kimcharli/jenkins-docker-master.svg[Docker Cloud Automated build]
+image:https://img.shields.io/docker/cloud/build/kimcharli/jenkins-docker-master.svg[Docker Cloud Build Status]
+
+https://cloud.docker.com/repository/docker/kimcharli/jenkins-docker-master
+
 :toc:
 
 TODO: embeddable-build-status
