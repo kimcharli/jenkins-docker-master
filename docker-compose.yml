@@ -7,11 +7,11 @@ jenkins:
   ports:
     - "8080:8080"
     - "50000:50000"
-#  volumes:
-#    - ./data/workspace:/var/jenkins_home/workspace:rw
-#    - ./data/logs:/var/log/jenkins:rw
-#    - ./data/_ssh:/var/jenkins_home/.ssh:rw
-#    - ./data/docker/docker:/usr/local/bin/docker:ro
+  volumes:
+    - ./data/workspace:/var/jenkins_home/workspace:rw
+    - ./data/logs:/var/log/jenkins:rw
+    - ./data/_ssh:/var/jenkins_home/.ssh:rw
+    - ./data/docker/docker:/usr/local/bin/docker:ro
 #  environment:
 #    JENKINS_OPTS: --logfile=/var/log/jenkins/jenkins.log --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.user=admin --argumentsRealm.roles.admin=admin
 
