@@ -8,6 +8,7 @@ do
   sleep 10
 done
 
+echo timeout
 exit 1
 
 
