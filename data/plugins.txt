@@ -4,3 +4,4 @@ blueocean:1.16.0
 gitlab-plugin:1.5.12
 ssh:2.6.1
 git:3.10.0
+ansible:1.0
