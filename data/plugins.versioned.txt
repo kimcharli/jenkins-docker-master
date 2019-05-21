@@ -1,0 +1,7 @@
+docker-plugin
+workflow-aggregator
+blueocean
+gitlab-plugin
+ssh
+git
+ansible
