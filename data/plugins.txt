@@ -1,7 +1,7 @@
-docker-plugin:1.1.6
-workflow-aggregator:2.6
-blueocean:1.16.0
-gitlab-plugin:1.5.12
-ssh:2.6.1
-git:3.10.0
-ansible:1.0
+docker-plugin
+workflow-aggregator
+blueocean
+gitlab-plugin
+ssh
+git
+ansible

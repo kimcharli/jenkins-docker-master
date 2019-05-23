@@ -1,48 +1,47 @@
-= jenkins master in docker
-:toc:
+# jenkins master in docker
 
-image:https://img.shields.io/docker/cloud/automated/kimcharli/jenkins-docker-master.svg[Docker Cloud Automated build]
-image:https://img.shields.io/docker/cloud/build/kimcharli/jenkins-docker-master.svg[Docker Cloud Build Status]
+[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/kimcharli/jenkins-docker-master.svg)](https://cloud.docker.com/repository/docker/kimcharli/jenkins-docker-master)
+[![Docker Cloud Status](https://img.shields.io/docker/cloud/build/kimcharli/jenkins-docker-master.svg)](https://cloud.docker.com/repository/docker/kimcharli/jenkins-docker-master)
 
 docker repo: https://cloud.docker.com/repository/docker/kimcharli/jenkins-docker-master
 
 
-== run jenkins master
+## run jenkins master
 
-=== git clone
+### git clone
 git clone in the master host
-----
+```
 git clone https://github.com/kimcharli/jenkins-docker-master.git
 cd jenkins-docker-master
-----
+```
 
-=== bring it up
-----
+### bring it up
+```
 docker-compose up -d
-----
+```
 
-=== take initial password and put in `*Unlock Jenkins page*`
-----
+### take initial password and put in **Unlock Jenkins page**
+```
 docker exec jenkins-master cat /var/jenkins_home/secrets/initialAdminPassword
 65b2e47c69ba4f6ea7b27e4577d595cb
-----
+```
 
-=== click `*Install Suggested Plugins*` in `*Customize Jenkins*`
+### click **Install Suggested Plugins** in **Customize Jenkins**
 
-=== fill out `*Create First Admin User*` form
+### fill out **Create First Admin User** form
 TIP: example: contrail/contrail123/contrail123/contrail/ckim@juniper.net
 
-=== check `*Jenkins URL*` in `*Instance Configuration*`
-click `*Save and Finish*`
+### check **Jenkins URL** in **Instance Configuration**
+click **Save and Finish**
 
-=== Jenkins is Reday
-click `*Start Using Jenkins*`
+### Jenkins is Reday
+click **Start Using Jenkins**
 
 
-== to shut it down
-----
+## to shut it down
+```
 docker-compose down -v
-----
+```
 
 
 
@@ -52,29 +51,28 @@ docker-compose down -v
 
 
 
-== customization
+## customization
 
-=== replace ssh key
-----
+### replace ssh key
+```
 mkdir -p data/_ssh
 ssh-keygen -b 2048 -t rsa -f data/_ssh/id_rsa -q -C "jenkins" -N ""
-----
+```
 
-=== update specific version of docker client binary for master
-----
+### update specific version of docker client binary for master
+```
 curl -s https://download.docker.com/linux/static/stable/x86_64/docker-18.09.5.tgz | tar zxf - -C jenkins docker/docker
-----
+```
 
-=== install specific version of docker compose
-----
+### install specific version of docker compose
+```
 sudo curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-----
+```
 
-=== fix docker network range
+### fix docker network range
 edit /etc/docker/daemon.json and restart docker
-[source,json]
-----
+```json
 {
   "debug" : true,
   "default-address-pools" : [
@@ -84,11 +82,11 @@ edit /etc/docker/daemon.json and restart docker
     }
   ]
 }
-----
+```
 
 
 
-== TODO
+## TODO
 - implement python3 once pyez endorses
 - docker agent tcp setup
 - pre-loaded (by docker-compose) password and project

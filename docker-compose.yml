@@ -11,6 +11,8 @@ jenkins:
     - ./data/workspace:/var/jenkins_home/workspace:rw
     - ./data/_ssh:/var/jenkins_home/.ssh:rw
     - ./data/docker/docker:/usr/local/bin/docker:ro
+    # local test cases
+    - /Users/ckim/PycharmProjects:/gitrepos:rw
 #  environment:
 #    JENKINS_OPTS: --logfile=/var/log/jenkins/jenkins.log --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.user=admin --argumentsRealm.roles.admin=admin
 
