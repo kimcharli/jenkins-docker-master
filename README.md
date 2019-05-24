@@ -26,6 +26,14 @@ docker exec jenkins-master cat /var/jenkins_home/secrets/initialAdminPassword
 65b2e47c69ba4f6ea7b27e4577d595cb
 ```
 
+or in 
+```
+docker exec -it jenkins-master bash
+echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("contrail", "contrail")' |
+java -jar /var/jenkins_home/war/WEB-INF/jenkins-cli.jar -auth admin:$(cat /var/jenkins_home/secrets/initialAdminPassword) -s http://localhost:8080/ groovy =
+```
+
+
 ### click **Install Suggested Plugins** in **Customize Jenkins**
 
 ### fill out **Create First Admin User** form
